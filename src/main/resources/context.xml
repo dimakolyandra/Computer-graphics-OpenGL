@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context 
+						http://www.springframework.org/schema/context/spring-context-3.2.xsd"
+	default-lazy-init="true">
+	
+<bean id="tor" class="openglexample.Tor"/>
+<bean id="sphera" class="openglexample.Sphere"/>
+<bean id="matrix" class="openglexample.MyModelView"/>
+<bean id="glcanvas" class="javax.media.opengl.awt.GLCanvas"/>
+<bean id="mouseListener" class="handlers.MyMouseListener"/>
+<bean id="ren" class="openglexample.Renderer">
+	<constructor-arg index="0" type="openglexample.MyModelView" ref="matrix"/>
+	<constructor-arg index="1" type="handlers.MyMouseListener" ref="mouseListener"/>
+	<property name="figure" ref="sphera"/>
+</bean>
+
+<bean id="animator" class="com.jogamp.opengl.util.Animator">
+	<constructor-arg ref="glcanvas"/>
+</bean>
+
+<bean id="glFrame" class="openglexample.GLFrame">
+	<constructor-arg index="0" type="javax.media.opengl.awt.GLCanvas" ref="glcanvas"/>
+	<constructor-arg index="1" type="com.jogamp.opengl.util.Animator" ref="animator"/>
+	<constructor-arg index="2" type="openglexample.Renderer" ref="ren"/>
+</bean>
+
+</beans>
