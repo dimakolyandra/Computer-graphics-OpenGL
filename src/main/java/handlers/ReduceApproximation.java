@@ -6,8 +6,12 @@ import java.awt.event.ActionListener;
 import abstractclasses.My3DFigure;
 import openglexample.Renderer;
 import openglexample.Sphere;
-import openglexample.Tor;
+import openglexample.Thor;
 
+/**
+ * Handler for the button click reduce approximation
+ * @author dimakolyandra
+ */
 public class ReduceApproximation implements ActionListener{
 	private Renderer ren;
 	public ReduceApproximation(Renderer r){
@@ -15,8 +19,8 @@ public class ReduceApproximation implements ActionListener{
 	}
 	public void actionPerformed(ActionEvent ev){
 		My3DFigure fig = ren.getFigure();
-		if(fig.getClass()==openglexample.Tor.class){
-			Tor tor = (Tor) fig;
+		if(fig.getClass()==openglexample.Thor.class){
+			Thor tor = (Thor) fig;
 			float dbTor = tor.getDbTor();
 			float dlTor = tor.getDlTor();
 			if(dbTor < 1 && dlTor < 1){

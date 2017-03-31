@@ -9,7 +9,7 @@
 						http://www.springframework.org/schema/context/spring-context-3.2.xsd"
 	default-lazy-init="true">
 	
-<bean id="tor" class="openglexample.Tor"/>
+<bean id="tor" class="openglexample.Thor"/>
 <bean id="sphera" class="openglexample.Sphere"/>
 <bean id="matrix" class="openglexample.MyModelView"/>
 <bean id="glcanvas" class="javax.media.opengl.awt.GLCanvas"/>

@@ -4,6 +4,10 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
+/**
+ * Handler for the mouse event
+ * @author dimakolyandra
+ */
 public class MyMouseListener implements MouseMotionListener{
 	
 	private double rotate_x;

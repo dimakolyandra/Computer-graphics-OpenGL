@@ -5,29 +5,44 @@ import javax.media.opengl.GL2;
 
 import abstractclasses.My3DFigure;
 
+/**
+ * Class sphere which extends abstract class My3DFigure
+ * @author User
+ *
+ */
 public class Sphere extends My3DFigure{
-	//private Vector<Edges> masEdgeSphere;
+	/** Radius of sphere*/
 	private final double R = 0.5;
+	
+	/** Step for polygon calculating */
 	private float dbSphere;
-    private float dlSphere;
+    
+	/** Step for polygon calculating */
+	private float dlSphere;
 
     public float getDbSphere() {
 		return dbSphere;
 	}
-	public void setDbSphere(float dbSphere) {
+	
+    public void setDbSphere(float dbSphere) {
 		this.dbSphere = dbSphere;
 	}
-	public float getDlSphere() {
+	
+    public float getDlSphere() {
 		return dlSphere;
 	}
-	public void setDlSphere(float dlSphere) {
+	
+    public void setDlSphere(float dlSphere) {
 		this.dlSphere = dlSphere;
 	}
     
+    /** Initialize begin step for approximating */
 	public Sphere(){
 		dbSphere = 10;
 		dlSphere = 10;	
 	}
+	
+	/** Calculate points for figure approximation  */
 	@Override
 	public void calcPoint() {
 		// TODO Auto-generated method stub

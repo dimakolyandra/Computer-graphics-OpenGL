@@ -5,15 +5,27 @@ import javax.media.opengl.GL2;
 
 import abstractclasses.My3DFigure;
 
-public class Tor extends My3DFigure{
+/**
+ * Class thor which extends abstract class My3DFigure
+ * @author User
+ *
+ */
+public class Thor extends My3DFigure{
 	
-	//private Vector<Edges> masEdgeTor;
+	/** External radius of thor */
 	private final float R =0.5f;
+	
+	/** Internal radius of thor */
     private final float r = 0.1f;
+    
+    /** Step for polygon calculating */
     private float dbTor;
+    
+    /** Step for polygon calculating */
     private float dlTor;
     
-    public Tor(){
+    /** Initialize begin step for approximating */
+    public Thor(){
     	dbTor = 0.3f;
     	dlTor = 0.3f;
     }
@@ -34,6 +46,7 @@ public class Tor extends My3DFigure{
 		this.dlTor = dlTor;
 	}
 	
+	/** Calculate points for figure approximation */
     @Override
 	public void calcPoint() {
     	masEdge = new Vector<Edges>();

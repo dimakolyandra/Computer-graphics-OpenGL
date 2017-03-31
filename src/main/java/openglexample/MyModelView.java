@@ -1,10 +1,16 @@
 package openglexample;
-
+/**
+ * This class realizes matrix of view and operations with matrix
+ * @author dimakolyandra
+ *
+ */
 class MyModelView{
+	/** Matrix of view*/
 	private float [] matrixView = {1,0,0,0,
 								   0,1,0,0,
 								   0,0,1,0,
 								   0,0,0,1};
+	/** Initialize view matrix */
 	public void initMatrix(){
 		for(int i = 0; i < 16; i++){
 			matrixView[i] = 0;							
@@ -14,9 +20,19 @@ class MyModelView{
 		matrixView[10] = -1;
 		matrixView[15] = 1;
 	}
+	
+	/**
+	 * Returns view matrix
+	 * @return float array which store view matrix
+	 */
 	public float[] getMatrix(){
 		return matrixView;
 	}
+	
+	/**
+	 * Translate matrix view from the a two-dimensional array to a one-dimensional array
+	 * @param C Matrix view in two-dimensional array
+	 */
 	public void setMatrixView(float[][]C){
 		for(int i = 0; i < 4; i++){
 			for(int j = 0; j < 4;j++){
@@ -25,6 +41,12 @@ class MyModelView{
 		}
 	}
 	
+	/**
+	 * Multiplication matrix
+	 * @param A First matrix
+	 * @param B Second matrix
+	 * @return Result of multiplication matrix
+	 */
 	public float[][] multMatrix(float[][] A,float[][] B){
 		float [][] C = new float[4][4];
 		for(int i = 0; i < 4;i++){
@@ -36,7 +58,13 @@ class MyModelView{
 		}
 		return C;
 	}
-	public void initAandC(float[][] A,float[][]C){
+	
+	/**
+	 * Initialized matrix for work with view matrix
+	 * @param A Matrix view
+	 * @param C Matrix initialized with zeros
+	 */	
+	private void initAandC(float[][] A,float[][]C){
 		for(int i = 0; i < 4; i++){
 			for(int j = 0; j < 4; j++){
 				C[i][j] = 0;
@@ -45,6 +73,11 @@ class MyModelView{
 		}
 		
 	}
+	
+	/**
+	 * Turn on the x-axis 
+	 * @param fiX angle of turn
+	 */
 	public void turnOX(float fiX){
 		float [][] matrTurnOX = new float[4][4];
 		for(int i = 0; i < 4; i++){
@@ -65,6 +98,10 @@ class MyModelView{
 		setMatrixView(C);
 	}
 	
+	/**
+	 * Turn on the y-axis
+	 * @param fiY angle of turn
+	 */
 	public void turnOY(float fiY){
 		float [][] matrTurnOY = new float[4][4];
 		for(int i = 0; i < 4; i++){

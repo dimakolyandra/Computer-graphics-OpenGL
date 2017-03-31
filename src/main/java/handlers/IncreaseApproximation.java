@@ -4,10 +4,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import abstractclasses.My3DFigure;
-import openglexample.Tor;
+import openglexample.Thor;
 import openglexample.Sphere;
 import openglexample.Renderer;
 
+/**
+ * Handler for the button click increase approximation
+ * @author dimakolyandra
+ */
 public class IncreaseApproximation implements ActionListener{
 	private Renderer ren;
 	
@@ -17,8 +21,8 @@ public class IncreaseApproximation implements ActionListener{
 	
 	public void actionPerformed(ActionEvent ev){
 		My3DFigure fig = ren.getFigure();
-		if(fig.getClass()==openglexample.Tor.class){
-			Tor tor = (Tor) fig;
+		if(fig.getClass()==openglexample.Thor.class){
+			Thor tor = (Thor) fig;
 			float dbTor = tor.getDbTor();
 			float dlTor = tor.getDlTor();
 			if(dbTor > 0.2f && dlTor > 0.2f){

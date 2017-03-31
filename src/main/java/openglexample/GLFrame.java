@@ -7,17 +7,34 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.jogamp.opengl.util.Animator;
 
-import handlers.DrawTor;
+import handlers.DrawThor;
 import handlers.DrowSphere;
 import handlers.IncreaseApproximation;
 import handlers.ReduceApproximation;
 
+/**
+ * Main class, which initialize the frame
+ * @author dimakolyandra
+ */
 public class GLFrame extends JFrame {
     
+	/** Panel for rendering */
     private GLCanvas canvas;
+    
+    /** Animator which realizes infinite cycle */
     private Animator anim;
+    
+    /** Realizes rendering*/ 
     private Renderer ren;
+    
+    /** Spring context of application*/
     private static ApplicationContext context;
+    
+    /**
+     * @param glcanvas panel for rendering
+     * @param animator object for infinite cycle
+     * @param renderer control the drawing
+     */
     public GLFrame(GLCanvas glcanvas,Animator animator,Renderer renderer) {
         this.canvas = glcanvas;
         this.anim = animator;
@@ -43,7 +60,7 @@ public class GLFrame extends JFrame {
         setSize(getPreferredSize());
         incrApr.addActionListener(new  IncreaseApproximation(ren));
         redApr.addActionListener(new ReduceApproximation(ren));
-        tor.addActionListener(new DrawTor(ren,context));
+        tor.addActionListener(new DrawThor(ren,context));
         Sphere.addActionListener(new DrowSphere(ren,context));
         canvas.addGLEventListener(ren);
         canvas.addMouseMotionListener(ren.getMouseListener());
@@ -58,6 +75,9 @@ public class GLFrame extends JFrame {
         });
     }
     
+    /** Method main 
+     * @param args array with arguments 
+     */
     public static void main(String[] args) {
     	context = new ClassPathXmlApplicationContext("context.xml");
     	GLFrame frame = (GLFrame)context.getBean("glFrame");

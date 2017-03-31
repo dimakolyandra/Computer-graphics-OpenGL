@@ -9,6 +9,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import openglexample.Renderer;
 import openglexample.Sphere;
 
+/**
+ * Handler for the button click sphere
+ * @author dimakolyandra
+ */
+
 public class DrowSphere implements ActionListener{
 	private Renderer ren;
 	ApplicationContext context;

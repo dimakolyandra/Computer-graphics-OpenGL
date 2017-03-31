@@ -5,11 +5,24 @@ import java.util.Vector;
 import javax.media.opengl.GL2;
 
 import openglexample.Edges;
-
+/** 
+ * Abstract class which is parent for classes Sphere and Tor
+ *  
+ * @author dimakolyandra
+ *
+ */
 public abstract class My3DFigure {
-	protected Vector<Edges> masEdge; // Массив граней 
-	public abstract void calcPoint(); // Метод, вычисляющий точки граней, аппроксимирующих фигуру
+	/** Array of edges that approximates figure*/
+	protected Vector<Edges> masEdge; 
 	
+	/** Abstract method, which calculate points of polygons for approximation of the figure */	
+	public abstract void calcPoint(); 
+	
+	/** Method that draws figure
+	 * @param gl openGL Context
+	 * @param light Coordinates of light source
+	 * @param camera Coordinates of camera 
+	 */
 	public void drawFigure(GL2 gl,float[] light,float []  camera) {
 		 for(int i = 0; i < masEdge.size();i++){
 		       float [] A = new float[3];
