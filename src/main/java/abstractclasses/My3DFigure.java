@@ -7,8 +7,8 @@ import javax.media.opengl.GL2;
 import openglexample.Edges;
 
 public abstract class My3DFigure {
-	protected Vector<Edges> masEdge;
-	public abstract void calcPoint();
+	protected Vector<Edges> masEdge; // Массив граней 
+	public abstract void calcPoint(); // Метод, вычисляющий точки граней, аппроксимирующих фигуру
 	
 	public void drawFigure(GL2 gl,float[] light,float []  camera) {
 		 for(int i = 0; i < masEdge.size();i++){
