@@ -3,7 +3,7 @@ package openglexample;
 import java.util.*;
 
 /**
- * Class that stores the points1
+ * Class that stores the points
  * of polygon and coordinates of normal
  * @author dimakolyandra
  */
